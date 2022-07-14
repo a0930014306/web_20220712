@@ -7,7 +7,7 @@
 
 body {
   font-family: Arial, Helvetica, "儷黑 Pro", "微軟正黑體", "新細明體", sans-serif;
-  /* background-color: #000; */
+  background-color: #000;
 }
 
 img {
@@ -68,12 +68,14 @@ img {
   position: absolute;
   top: 0;
   left: 0;
+  transition: all .5s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .slide-item {
   padding: 3em 5em;
   width: 100vw;
   height: 100vh;
+  overflow: auto;
 }
 
 .nav {
@@ -83,7 +85,7 @@ img {
   z-index: 1;
 }
 
-.nav-btn {
+.nav-btn{
   display: block;
   border: none;
   text-indent: -9999px;
@@ -127,32 +129,32 @@ img {
   padding: 12px;
 }
 
-.pd-item > a{
+.pd-item>a {
   display: block;
-  -webkit-box-reflect: below 0 linear-gradient(0 ,rgba(0,0,0,.3)0 ,rgba(0,0,0,0)50%);
+  -webkit-box-reflect: below 0 linear-gradient(0, rgba(0, 0, 0, .3)0, rgba(0, 0, 0, 0)50%);
 }
 
 /* Modules 覆蓋 -------------------- */
 
-.hover-overlay{
+.hover-overlay {
   position: relative;
 }
 
-.hover-overlay::after{
+.hover-overlay::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
 }
 
-.hover-overlay:hover::after{
-  background-color: rgba(0,0,0,.5);
+.hover-overlay:hover::after {
+  background-color: rgba(0, 0, 0, .5);
 }
 
-.hover-icon i{
+.hover-icon i {
   color: #fff;
   position: absolute;
   top: 50%;
@@ -164,7 +166,7 @@ img {
   z-index: 1;
 }
 
-.hover-icon:hover i{
+.hover-icon:hover i {
   transform: scale(1);
 }
 
@@ -174,10 +176,11 @@ img {
 
 /* Modules 縮放影像 -------------------- */
 
-.hover-scale{
+.hover-scale {
   overflow: hidden;
 }
-.hover-scale:hover > .img-resp{
+
+.hover-scale:hover>.img-resp {
   transform: scale(1.2);
 }
 
@@ -189,7 +192,51 @@ img {
 }
 
 /* State ----------------------- */
+.js-nav-btn{
+  background-color: #fff !important;
+}
 
+.js-nav {
+  background-color: rgba(0,0,0,.7) !important;
+}
 
 
 /* RWD --------------------------- */
+
+@media screen and (max-width:1024px) {
+  .pd {
+    width: 80%;
+  }
+  .nav{
+    margin-top: -100px;
+  }
+}
+
+@media screen and (max-width:480px) {
+
+  .nav{
+    top: 0;
+    margin-top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .pd-item {
+    width: 50%;
+  }
+
+  .slide-item {
+    padding: 4em 2em 2em;
+  }
+
+  .pd {
+    width: auto;
+  }
+
+  .pd-head {
+    text-align: center;
+  }
+
+
+}
